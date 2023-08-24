@@ -1,0 +1,151 @@
+LAMMPS (8 Feb 2023)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+Loaded 1 plugins from C:\Users\User\AppData\Local\LAMMPS 64-bit 8Feb2023\plugins
+units real
+dimension 3
+boundary p p p
+atom_style full
+pair_style lj/charmm/coul/long 6 12
+pair_modify mix arithmetic
+bond_style harmonic
+angle_style charmm
+dihedral_style charmm
+improper_style harmonic
+kspace_style ewald/disp 1e-06
+read_data cell.data
+Reading data file ...
+  orthogonal box = (0 0 0) to (21.843221 21.843221 21.843221)
+  1 by 1 by 1 MPI processor grid
+WARNING: Bond style in data file differs from currently defined bond style (src/read_data.cpp:721)
+  reading atoms ...
+  988 atoms
+  scanning bonds ...
+  4 = max bonds/atom
+  scanning angles ...
+  6 = max angles/atom
+  scanning dihedrals ...
+  24 = max dihedrals/atom
+  reading bonds ...
+  1014 bonds
+  reading angles ...
+  1843 angles
+  reading dihedrals ...
+  2942 dihedrals
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     4 = max # of 1-2 neighbors
+    10 = max # of 1-3 neighbors
+    19 = max # of 1-4 neighbors
+    22 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+  read_data CPU = 0.067 seconds
+neighbor 2.0 bin
+neigh_modify every 20 delay 0 check yes
+minimize 1.0e-3 1.0e-5 1000 10000
+Switching to 'neigh_modify every 1 delay 0 check yes' setting during minimization
+EwaldDisp initialization ...
+Generated 105 of 105 mixed pair_coeff terms from arithmetic mixing rule
+  G vector = 0.25167603,   accuracy = 0.00033206371
+Generated 105 of 105 mixed pair_coeff terms from arithmetic mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 14
+  ghost atom cutoff = 14
+  binsize = 7, bins = 4 4 4
+  2 neighbor lists, perpetual/occasional/extra = 2 0 0
+  (1) pair lj/charmm/coul/long, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+  (2) pair lj/charmm/coul/long, perpetual, copy from (1)
+      attributes: half, newton on
+      pair build: copy
+      stencil: none
+      bin: none
+WARNING: Inconsistent image flags (src/domain.cpp:815)
+  vectors: nbox = 6, nkvec = 462
+Per MPI rank memory allocation (min/avg/max) = 32.8 | 32.8 | 32.8 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              4.0094169e+13  1986.7877      4.0094169e+13  1.0551527e+15
+       230   0             -703.27902      2010.7679      1307.4889      3389.1965    
+Loop time of 6.51858 on 1 procs for 230 steps with 988 atoms
+
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+Minimization stats:
+  Stopping criterion = energy tolerance
+  Energy initial, next-to-last, final = 
+      40094169378107.9    1308.6164073127   1307.48888959814
+  Force two-norm initial, final = 3.5663131e+15 40.327295
+  Force max component initial, final = 2.3071789e+15 7.8256712
+  Final line search alpha, max atom move = 0.0042128791 0.032968607
+  Iterations, force evaluations = 230 378
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 4.92       | 4.92       | 4.92       |   0.0 | 75.48
+Bond    | 0.12638    | 0.12638    | 0.12638    |   0.0 |  1.94
+Kspace  | 1.2765     | 1.2765     | 1.2765     |   0.0 | 19.58
+Neigh   | 0.168      | 0.168      | 0.168      |   0.0 |  2.58
+Comm    | 0.017399   | 0.017399   | 0.017399   |   0.0 |  0.27
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 0.01031    |            |       |  0.16
+
+Nlocal:            988 ave         988 max         988 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:          10817 ave       10817 max       10817 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         537125 ave      537125 max      537125 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 537125
+Ave neighs/atom = 543.64879
+Ave special neighs/atom = 10.082996
+Neighbor list builds = 14
+Dangerous builds = 0
+run 1000
+WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
+EwaldDisp initialization ...
+Generated 105 of 105 mixed pair_coeff terms from arithmetic mixing rule
+  G vector = 0.25167603,   accuracy = 0.00033206371
+Generated 105 of 105 mixed pair_coeff terms from arithmetic mixing rule
+WARNING: Inconsistent image flags (src/domain.cpp:815)
+Per MPI rank memory allocation (min/avg/max) = 31.68 | 31.68 | 31.68 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+       230   0             -703.27902      2010.7679      1307.4889      3389.1965    
+      1230   0             -703.27902      2010.7679      1307.4889      3389.1965    
+Loop time of 11.0898 on 1 procs for 1000 steps with 988 atoms
+
+Performance: 7.791 ns/day, 3.081 hours/ns, 90.173 timesteps/s, 89.091 katom-step/s
+99.6% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 7.4948     | 7.4948     | 7.4948     |   0.0 | 67.58
+Bond    | 0.23515    | 0.23515    | 0.23515    |   0.0 |  2.12
+Kspace  | 3.316      | 3.316      | 3.316      |   0.0 | 29.90
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.035922   | 0.035922   | 0.035922   |   0.0 |  0.32
+Output  | 1.7e-05    | 1.7e-05    | 1.7e-05    |   0.0 |  0.00
+Modify  | 0.000192   | 0.000192   | 0.000192   |   0.0 |  0.00
+Other   |            | 0.007701   |            |       |  0.07
+
+Nlocal:            988 ave         988 max         988 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:          10778 ave       10778 max       10778 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         537107 ave      537107 max      537107 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 537107
+Ave neighs/atom = 543.63057
+Ave special neighs/atom = 10.082996
+Neighbor list builds = 0
+Dangerous builds = 0
